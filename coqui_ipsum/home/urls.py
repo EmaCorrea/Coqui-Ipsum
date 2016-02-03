@@ -1,7 +1,7 @@
-from django.conf.urls import include, url
+from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-	url(r'^$', views.home),
-	url(r'^/about/$', views.about),
+    url(r'^$', views.home, name='home'),
+    url(r'^about/$', views.about, name='about'),
 ]

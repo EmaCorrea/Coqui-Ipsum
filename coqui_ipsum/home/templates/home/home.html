@@ -1,34 +1,40 @@
 {% extends 'home/base.html' %}
 
-{% block content %}
-<h1 align="center" style="font-family: Lobster;"> Stuff goes here </h1>	
+{% block content %}	
 
-
+<br>
+{% for paragraph in paragraphs %}
+<center> {{ paragraph }} </center>
+<br>
+{% endfor %}
 
 <div id="input">
-	
-	<form method="get"> 
-		<table align="center" border="borders">
+	<form action="{% url 'home' %}" method="POST"> 
+		{% csrf_token %}
+		<table align="center" border="border">
 			<tr> 
-				<td> Paragraphs: </td>
-				<td>  <input type="text" name="paragraph" value="5" maxlength="2">  </td>
+				<td width="40%"> Paragraphs: </td>
+				<td width="60%"> <input type="number" name="paragraph" min="1" max="10" value="1"> </td>
 			</tr>
-				<br>
+			<br>
 			<tr>
 				<td> Type: </td>
-				<td> <input type="checkbox" name="type" value="filler">  Add filler </td> 
+				<td> <input type="checkbox" name="filler" value="yes">  Add filler </td> 
 			</tr>
-				<br>
+			<br>
 			<tr>
-				<td colspan="2">
-				<center> <input type="checkbox" name="start" value="start"> Start with 'Coqui ipsum dolor amet...' </center> </td>
+				<td colspan="2"><center>
+					<input type="checkbox" name="start" value="yes" checked="checked"> Start with 'Coqui ipsum dolor amet...' 
+				</center></td>
 			</tr>
-				<br>
+			<br>
 			<tr>
-				<td colspan="2"> <center> <input type="submit" value="Submit"> </center> </td>
+				<td colspan="2"><center>
+					<button type="submit"> Submit </button>
+				</center></td>
 			</tr>
 		</table>
 	</form>
-
 </div>
+
 {% endblock %}

@@ -47,7 +47,7 @@ def home(request):
 
 	if start == "yes":
 		startParagraph = create_paragraphs(request)
-		paragraphs.append("Coqui ipsum dolor amet " + startParagraph[1].lower() + startParagraph[2:])
+		paragraphs.append("Coquí ipsum dolor sit amet " + startParagraph[1].lower() + startParagraph[2:])
 		numParagraph = int(numParagraph) - 1
 
 	for i in range(0, int(numParagraph)):
@@ -76,11 +76,11 @@ def create_sentence(request):
 	sentenceArr = []
 	sentence = ""
 	randomRange = random.randint(8, 15)
-	randomFiller = random.randint(1, len(WORDS) - 1)
 
 
 	for i in range(randomRange):
 		randomIndex = random.randint(0, word.count() - 1)
+		randomFiller = random.randint(1, len(WORDS) - 1)
 		randomCommas = random.randint(2, 6)
 
 		if i == 0:

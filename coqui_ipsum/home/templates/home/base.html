@@ -1,23 +1,25 @@
 {% load staticfiles %}
 <html>
 <head>
-	<title> Coqui Ipsum </title>
+	<title> Coqu&iacute; Ipsum </title>
 	<link rel="stylesheet" href="{% static 'home/coquiipsum.css' %}">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-	<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="{% static 'home/bootstrap.css' %}">
 </head>
-<body style="background-color:#F1F1F1;">
+<body style="background-color: #8BB88C;">
+
 	<div id="wrapper">
-		<center> <img src="{% static "home/logo.png" %}" /> </center>
-		<div id="navbar">
-			<ul>
-				<li><a href="{% url 'home.views.home' %}"> Home </a></li>
-				<li><a href="https://github.com/EmaCorrea" target="blank"> GitHub </a></li>
-				<li><a href="{% url 'home.views.about' %}"> About </a></li>
-			</ul>
-		</div>
+
+	<nav class="navbar navbar-default" role="navigation">
+		<center> <div class="img-wrapper"><img src="{% static "home/logo.png" %}"/> </div></center>
+    		<div class="navbar-center">
+				<ul class="nav navbar-nav" style="font-size:24px;">
+					<li><a href="{% url 'home.views.home' %}"> Home </a></li>
+					<li><a href="{% url 'home.views.about' %}"> About </a></li>
+					<li><a href="https://github.com/EmaCorrea/Coqui-Ipsum" target="blank"> GitHub </a></li>
+				</ul>
+   			</div>
+	</nav>
+
 		<div id="content">
 			{% block content %}
 			{% endblock %}

@@ -2,29 +2,30 @@
 
 {% block content %}	
 
-<br>
 {% for paragraph in paragraphs %}
-<center> {{ paragraph }} </center>
-<br>
+<p align="justify" style="padding: 0 75px"> {{ paragraph }} </p>
+
 {% endfor %}
 
 <div id="input">
 	<form action="{% url 'home' %}" method="POST"> 
 		{% csrf_token %}
-		<table align="center" border="border">
+		<table align="center" border="border" class="table table-bordered">
+			<caption style="color: black"><center> Generate your paragraph(s) here! </center></caption>
 			<tr> 
-				<td width="40%"> Paragraphs: </td>
-				<td width="60%"> <input type="number" name="paragraph" min="1" max="10" value="1"> </td>
-			</tr>
-			<br>
-			<tr>
-				<td> Type: </td>
-				<td> <input type="checkbox" name="filler" value="yes">  Add filler </td> 
+				<td width="50%" align="right"> Paragraphs: </td>
+				<td width="50%"> <input type="number" name="paragraph" min="1" max="10" value="1"> </td>
 			</tr>
 			<br>
 			<tr>
 				<td colspan="2"><center>
-					<input type="checkbox" name="start" value="yes" checked="checked"> Start with 'Coqui ipsum dolor amet...' 
+					<input type="checkbox" name="filler" value="yes">  Add filler 
+				</td></center>
+			</tr>
+			<br>
+			<tr>
+				<td colspan="2"><center>
+					<input type="checkbox" name="start" value="yes" checked="checked"> Start with 'Coqu&iacute; ipsum dolor sit amet...' 
 				</center></td>
 			</tr>
 			<br>
